@@ -4,5 +4,6 @@ class FavouriteFood < ApplicationRecord
   validates :dish, :description, presence: true
   validates :dish, length: { minimum: 4 }
 
-  belongs_to :Character
+  has_many :characters_foods
+  has_many :Character, through: :characters_foods
 end
