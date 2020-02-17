@@ -2,11 +2,14 @@
 
 class Film < ApplicationRecord
   validates :title, :episode_id, :opening_crawl, :director, :producer, :release_date, presence: true
-  validates :episode_id, numericality: { greater_than_or_equal_to: 0 }
+  validates :episode_id, numericality: { only_integer: true }
 
+  has_many :characters_films
   has_many :characters, through: :characters_films
+
+  has_many :films_species
   has_many :species, through: :films_species
-  has_many :starships, through: :films_starships
-  has_many :vehicles, through: :films_vehicles
+
+  has_many :films_planets
   has_many :planets, through: :films_planets
 end

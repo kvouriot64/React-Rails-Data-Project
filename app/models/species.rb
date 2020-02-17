@@ -1,9 +1,8 @@
 # frozen_string_literal: true
 
 class Species < ApplicationRecord
-  # validates :name, :classification, :designation, :average_height, :skin_colors, :hair_colors, :eye_colors, :average_lifespan, presence: true
-  # validates :average_height, numericality: { greater_than_or_equal_to: 0 }
-  # validates :name, uniqueness: true
+  validates :name, :classification, :designation, :average_height, presence: true
+  validates :name, uniqueness: true
 
   belongs_to :Planet
 
