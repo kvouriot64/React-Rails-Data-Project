@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import Category from './Category'
-import {BrowserRouter as Router, Route} from 'react-router-dom'
 
 class Nav extends React.Component {
   render () {

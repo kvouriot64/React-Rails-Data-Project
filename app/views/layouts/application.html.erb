@@ -1,3 +1,12 @@
+<% categories = [
+                Character.name,
+                Planet.name,
+                Food.name,
+                Film.name,
+                Species.name,
+                'About'
+                ]
+%>
 <!DOCTYPE html>
 <html>
   <head>
@@ -5,11 +14,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'Index' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= react_component 'Nav', {placeholder: "Search", categories: categories}, {prerender: true} %>
+    <div id="root">
+      <%= yield %>
+    </div>
   </body>
 </html>
