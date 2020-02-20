@@ -1,10 +1,13 @@
 import React from "react"
 import PropTypes from "prop-types"
+import {Link} from 'react-router-dom'
 
 class Category extends React.Component {
   render () {
     return (
-      <li className="nav-item"><a className="nav-link" href={this.props.category}>{this.props.category}</a></li>
+      <Link to={this.props.category}>
+        <li className="nav-item nav-link">{this.props.category}</li>
+      </Link>
     );
   }
 }

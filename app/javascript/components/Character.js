@@ -3,7 +3,10 @@ import PropTypes, { string } from "prop-types"
 
 class Character extends React.Component {
 
-
+  componentDidMount() {
+    const characters = fetch('/Characters.json')
+                        .await(res => res.json())
+  }
 
   render () {
     return (
@@ -19,14 +22,14 @@ class Character extends React.Component {
   }
 }
 
-Character.PropTypes = {
-name: string,
-mass: string,
-heigh: string,
-eye_color: string,
-hair_color: string,
-birth_year: string,
-gender: string
+Character.propTypes = {
+name: PropTypes.string,
+mass: PropTypes.string,
+heigh: PropTypes.string,
+eye_color: PropTypes.string,
+hair_color: PropTypes.string,
+birth_year: PropTypes.string,
+gender: PropTypes.string
 }
 
 export default Character
