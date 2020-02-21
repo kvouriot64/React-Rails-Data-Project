@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 
 function CharacterDetail() {
 
   useEffect(() => {
-    fetchChar()
-    fetchPlanet()
+    fetchData()
   }, [])
 
   const { id } = useParams();
@@ -13,15 +12,13 @@ function CharacterDetail() {
   const [character, setCharacter] = useState({})
   const [planet, setPlanet] = useState({})
 
-  const fetchChar = async () => {
+  const fetchData = async () => {
     const res = await fetch(`/api/characters/show/${id}`)
     const character = await res.json()
     setCharacter(character)
-  }
 
-  const fetchPlanet = async () => {
-    const res = await fetch(`/api/planets/show/${character.Planet_id}`)
-    const planet = await res.json()
+    const planet_response = await fetch(`/api/planets/show/${character.Planet_id}`)
+    const planet = await planet_response.json()
     setPlanet(planet)
   }
 
@@ -35,7 +32,7 @@ function CharacterDetail() {
       <p>Eye Colour: {character.eye_color}</p>
       <p>Birth Year: {character.birth_year}</p>
       <p>Gender: {character.gender}</p>
-      <p>Planet: {planet.name}</p>
+      <p><Link to={`/Planets/${planet.id}`}>Planet: {planet.name}</Link></p>
     </div>
   )
 }
