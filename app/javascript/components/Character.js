@@ -1,35 +1,25 @@
 import React from "react"
-import PropTypes, { string } from "prop-types"
+import PropTypes from "prop-types"
+import {Link} from 'react-router-dom'
 
-class Character extends React.Component {
-
-  componentDidMount() {
-    const characters = fetch('/Characters.json')
-                        .await(res => res.json())
-  }
-
-  render () {
+function Character(props) {
     return (
-      <div>
-        <h2>{this.props.name}</h2>
-        <p>{this.props.height}</p>
-        <p>{this.props.mass}</p>
-        <p>{this.props.hair_color}</p>
-        <p>{this.props.skin_color}</p>
-        <p>{this.props.eye_color}</p>
-      </div>
-    );
-  }
+      <tr>
+        <td><Link to={`/Characters/${props.character.id}`}>{props.character.name}</Link></td>
+        <td>{props.character.height}</td>
+        <td>{props.character.mass}</td>
+        <td>{props.character.hair_color}</td>
+        <td>{props.character.skin_color}</td>
+        <td>{props.character.eye_color}</td>
+        <td>{props.character.birth_year}</td>
+        <td>{props.character.gender}</td>
+      </tr>
+    )
+
 }
 
 Character.propTypes = {
-name: PropTypes.string,
-mass: PropTypes.string,
-heigh: PropTypes.string,
-eye_color: PropTypes.string,
-hair_color: PropTypes.string,
-birth_year: PropTypes.string,
-gender: PropTypes.string
-}
+  character: PropTypes.object
+};
 
 export default Character
