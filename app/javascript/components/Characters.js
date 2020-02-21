@@ -37,7 +37,6 @@ class Characters extends React.Component {
             {data}
           </tbody>
           </table>
-
         </div>
     );
   }

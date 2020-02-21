@@ -6,7 +6,7 @@ class About extends React.Component {
       <div>
         <div className="jumbotron">
           <h1 className="display-3">About the data</h1>
-          <p className="lead">The data presented here is pulled from 2 sources - the <a href="swapi.co">Star Wars Api</a> and
+          <p className="lead">The data presented here is pulled from 2 sources - the <a href="https://www.swapi.co">Star Wars Api</a> and
         the Faker ruby gem. The data is persisted into 5 tables called Characters, Foods, Planets, Films, and Species.</p>
         </div>
         <div className="container">

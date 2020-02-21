@@ -5,9 +5,11 @@ import {Link} from 'react-router-dom'
 class Category extends React.Component {
   render () {
     return (
-      <Link to={this.props.category}>
-        <li className="nav-item nav-link">{this.props.category}</li>
-      </Link>
+
+        <li >
+          <Link className="nav-item nav-link" to={this.props.category}>{this.props.category}</Link>
+        </li>
+
     );
   }
 }
