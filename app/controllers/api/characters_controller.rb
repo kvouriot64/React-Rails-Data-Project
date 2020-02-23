@@ -2,8 +2,12 @@
 
 class Api::CharactersController < ApplicationController
   def index
-    @characters = Character.all.includes(:films, :characters_foods, :planet, :foods, :characters_foods, :species, :characters_species)
-    render json: @characters
+    @characters = Character.paginate(page: params[:page])
+    render json: {
+      characters: @characters,
+      page: @characters.current_page, # returns an integer corresponding to current page
+      pages: @characters.total_pages # returns an integer corresponding to all pages
+    }
   end
 
   def show

@@ -1,19 +1,39 @@
 import React from "react"
 import Character from './Character'
+import { Pagination } from 'semantic-ui-react'
 
 class Characters extends React.Component {
 
   constructor() {
     super()
     this.state = {
-      characters: []
+      characters: [],
+      page: null,
+      pages: null
     }
   }
 
+  handlePage = (e, {activePage}) => {
+    let gotoPage = {activePage}
+    let pageNumber = gotoPage.activePage
+
+    fetch(`/api/characters/index/?page=${pageNumber}`)
+    .then(res => res.json())
+    .then(res => this.setState({
+      characters: res.characters,
+      page: res.page,
+      pages: res.pages
+    }))
+  }
+
   componentDidMount() {
-    fetch('/api/characters/index')
+    fetch('/api/characters/index/')
       .then(res => res.json())
-      .then(chars => this.setState({ characters: chars }))
+      .then(res => this.setState({
+        characters: res.characters,
+        page: res.page,
+        pages: res.pages
+      }))
   }
 
   render () {
@@ -37,6 +57,13 @@ class Characters extends React.Component {
             {data}
           </tbody>
           </table>
+          <Pagination
+          onPageChange={this.handlePage}
+          size='mini'
+          siblingRage="4"
+          defaultActivePage={this.state.page}
+          totalPages={this.state.pages}
+          />
         </div>
     );
   }

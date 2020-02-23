@@ -14,4 +14,6 @@ class Character < ApplicationRecord
 
   has_many :characters_foods
   has_many :foods, through: :characters_foods
+
+  self.per_page = 10
 end
