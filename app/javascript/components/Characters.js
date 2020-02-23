@@ -57,13 +57,18 @@ class Characters extends React.Component {
             {data}
           </tbody>
           </table>
-          <Pagination
-          onPageChange={this.handlePage}
-          size='mini'
-          siblingRage="4"
-          defaultActivePage={this.state.page}
-          totalPages={this.state.pages}
-          />
+            <ul className="pagination pagination-lg">
+              <li className="page-item">
+                <Pagination
+                className="page-link"
+                onPageChange={this.handlePage}
+                siblingPage="4"
+                boundaryRange="3"
+                defaultActivePage={this.state.page}
+                totalPages={this.state.pages}
+                />
+              </li>
+          </ul>
         </div>
     );
   }

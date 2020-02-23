@@ -3,10 +3,17 @@ import PropTypes from "prop-types"
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
 
 import Category from './Category'
+import SearchBar from './SearchBar'
 
 class Nav extends React.Component {
-  render () {
+  constructor() {
+    super()
+    this.state = {
+      text: ''
+    }
+  }
 
+  render () {
     const categoryComponents = this.props.categories.map(category =>
     <Category category={category} />)
 
@@ -19,10 +26,7 @@ class Nav extends React.Component {
               {categoryComponents}
           </ul>
 
-          <form className="form-inline my-2 my-lg-0">
-            <input className="form-control mr-sm-2" placeholder={this.props.placeholder} />
-            <input className="btn btn-secondary my-2 my-sm-0" type="submit"/>
-          </form>
+          <SearchBar />
         </nav>
       </div>
     );

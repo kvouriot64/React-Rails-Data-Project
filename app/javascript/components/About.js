@@ -11,7 +11,10 @@ class About extends React.Component {
         </div>
         <div className="container">
           <hr className="my-4"/>
-          <h3>Each table carries a many-to-many association with at least 1 other table which is resolved in ActiveRecord via bridging models.</h3>
+          <h3>Each table carries a many-to-many association with at least 1 other table which is resolved in ActiveRecord via bridging models. Much
+            of the data was paginated and required multiple fetch calls in the back end. A lot of the data sets also had their own associations - each of these had
+            to be resolved when it came time to seed.
+          </h3>
         </div>
       </div>
     );
