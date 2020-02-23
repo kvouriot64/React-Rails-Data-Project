@@ -5,5 +5,7 @@ class Planet < ApplicationRecord
   validates :name, uniqueness: true
 
   has_many :characters
+
+  has_many :films_planets
   has_many :films, through: :films_planets
 end
