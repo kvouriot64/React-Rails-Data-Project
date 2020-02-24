@@ -15,6 +15,7 @@ import Films from './Films'
 import Foods from './Foods'
 import Species from './Species'
 import Planets from './Planets'
+import Search from './Search'
 
 class App extends React.Component {
 
@@ -39,6 +40,7 @@ class App extends React.Component {
                 <Route exact path="/Films/:id" component={FilmDetail} />
                 <Route exact path="/Foods" component={Foods} />
                 <Route exact path="/Foods/:id" component={FoodDetail} />
+                <Route exact path ="/Search/:query" component={Search} />
               </Switch>
             </Router>
         </div>

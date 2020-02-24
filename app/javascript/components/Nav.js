@@ -20,7 +20,7 @@ class Nav extends React.Component {
     return (
       <div>
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-          <Link to="/"><h1 className="navbar-brand">Star Wars Data Hub</h1></Link>
+          <h1><Link className="navbar-brand" to="/">Star Wars Data Hub</Link></h1>
 
           <ul className="navbar-nav mr-auto">
               {categoryComponents}
