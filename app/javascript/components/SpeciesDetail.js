@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react"
 import {useParams} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 function SpeciesDetail() {
   useEffect(() => {
@@ -31,7 +32,7 @@ function SpeciesDetail() {
       <p>Eye Colours: {species.eye_colors}</p>
       <p>Average Lifespan: {species.average_lifespan}</p>
       <p>Language: {species.language}</p>
-      <p>Homeworld: {planet.name}</p>
+      <p>Homeworld: <Link to={`/Planets/${planet.id}`}>{planet.name}</Link></p>
     </div>
   );
 }

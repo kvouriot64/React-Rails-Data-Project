@@ -1,5 +1,7 @@
-import React from "react"
+import React, { useEffect } from "react"
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {HistoryProvider} from '../context/HistoryContext'
+import useHistory from '../hooks/useHistory'
 import Nav from './Nav'
 
 import CharacterDetail from './CharacterDetail'
@@ -17,13 +19,20 @@ import Species from './Species'
 import Planets from './Planets'
 import Search from './Search'
 
-class App extends React.Component {
+export default () => {
+  const categories = ['Characters', 'Planets', 'Foods', 'Films', 'Species', 'About']
 
-  render () {
+  const historyContext = useHistory()
+  const { history, updateHistory, pushToHistory } = historyContext
 
-    const categories = ['Characters', 'Planets', 'Foods', 'Films', 'Species', 'About']
+  useEffect(() => {
+    updateHistory([])
+    console.log(history)
+  }, [])
 
-    return (
+  return (
+    <>
+      <HistoryProvider value={historyContext}>
         <div>
           <Router>
             <Nav placeholder="Search" categories={categories}/>
@@ -44,8 +53,7 @@ class App extends React.Component {
               </Switch>
             </Router>
         </div>
-    );
-  }
+      </HistoryProvider>
+    </>
+  );
 }
-
-export default App
